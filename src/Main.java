@@ -4,8 +4,14 @@ public class Main {
      * 3+ if-else scenarios
      * 2+ variables (e.g. gold, stamina)
      * 2+ methods/functions
+     *
+     * THEME: Pirate adventure
+     * - looking for treasure on a lost island
+     * - fighting enemies.
+     *
      * Main Class
-     * - One main loop
+     * - One main method
+     * - A loop with a switch-case structure
      *
      * OBJECTS
      * - Player
