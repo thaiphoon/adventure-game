@@ -1,11 +1,22 @@
 public class Enemy{
-    /*
-     *      Variables
-     *          gold int private
-     *          stamina int private
-     *      Methods
-     *          getStamina public - no arguments
-     *          updateStamina public - int stamina (could be negative)
-     *          getGold public - no arguments
-     */
+
+  private int gold;
+  private int stamina;
+
+  public Enemy(int gold, int stamina) {
+    this.gold = gold;
+    this.stamina = stamina;
+  }
+
+  public int getGold() {
+    return gold;
+  }
+
+  public int getStamina() {
+    return stamina;
+  }
+
+  public void updateStamina(int stamina) {
+    this.stamina += stamina;
+  }
 }
