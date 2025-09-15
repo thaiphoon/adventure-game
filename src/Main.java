@@ -31,6 +31,7 @@ public class Main {
      *      Methods
      *          getStamina
      *          updateStamina
+     *
      * - Treasure
      *      gold
      *
@@ -40,4 +41,7 @@ public class Main {
      *      Methods
      *          fight
      */
+    public static void main(String[] args){
+        // todo Loop with switch-case structure
+    }
 }
