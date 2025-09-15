@@ -16,32 +16,40 @@ public class Main {
      * OBJECTS
      * - Player
      *      Variables
-     *          gold
-     *          stamina
+     *          gold int private
+     *          stamina int private
      *      Methods
-     *          exploreArea
-     *          rest
-     *          getStamina
-     *          updateStamina
+     *          exploreArea public - no arguments (randomise find enemy / treasure)
+     *          rest public - no arguments
+     *          getStamina public - no arguments
+     *          updateStamina public - int stamina (could be negative)
+     *          getGold public - no arguments
+     *          updateGold Public - int gold
      *
      * - Enemy
      *      Variables
-     *          gold
-     *          stamina
+     *          gold int private
+     *          stamina int private
      *      Methods
-     *          getStamina
-     *          updateStamina
+     *          getStamina public - no arguments
+     *          updateStamina public - int stamina (could be negative)
+     *          getGold public - no arguments
      *
      * - Treasure
-     *      gold
+     *      Variables
+     *          gold int private
+     *      Methods
+     *          getGold public - no arguments
      *
      * - Weapon
+     *      Future release
      *
      * - Fight
      *      Methods
-     *          fight
+     *          fight public - (Player object, Enemy object) // Could be Array opf Enemies
      */
     public static void main(String[] args){
         // todo Loop with switch-case structure
     }
 }
+
