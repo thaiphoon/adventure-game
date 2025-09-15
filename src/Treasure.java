@@ -12,7 +12,5 @@ public class Treasure{
         return gold;
     }
 
-    public int
-
 
 }
