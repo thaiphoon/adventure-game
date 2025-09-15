@@ -15,6 +15,7 @@ public class Main {
      *
      * TODO method createPlayer()
      * TODO method createEnemy()
+     * TODO method createTreasure()
      *
      * OBJECTS
      * - Player
