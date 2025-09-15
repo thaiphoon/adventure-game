@@ -13,6 +13,9 @@ public class Main {
      * - One main method
      * - A loop with a switch-case structure
      *
+     * TODO method createPlayer()
+     * TODO method createEnemy()
+     *
      * OBJECTS
      * - Player
      *      Variables
