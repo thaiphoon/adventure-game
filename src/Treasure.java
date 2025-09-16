@@ -5,4 +5,12 @@ public class Treasure{
      *      Methods
      *          getGold public - no arguments
      */
+
+    private int gold = 0;
+
+    public int getGold(){
+        return gold;
+    }
+
+
 }
