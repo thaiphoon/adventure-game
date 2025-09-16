@@ -52,8 +52,28 @@ public class Main {
      *      Methods
      *          fight public - (Player object, Enemy object) // Could be Array opf Enemies
      */
-    public static void main(String[] args){
-        // todo Loop with switch-case structure
+    public static void main(String[] args) {
+
+        Explore explore = new Explore(9, 9, 1, 4, 0.8,
+                0, 101, 0.8);
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                    sb.append("Square-coord(x, y) = ").append(j).append(" ").append(i).append(" ").
+                            append("nrEnemies = ").append(printNrEnemies(explore.exploreSquare(j, i))).append(" ").
+                            append("Treasure = ").append(printTreasure(explore.exploreSquare(j, i).getTreasure()));
+                    System.out.println(sb.toString());
+                    sb  = new StringBuilder();
+            }
+        }
+    }
+
+    private static int printNrEnemies(Square square){
+        return square.getEnemies().length;
+    }
+
+    private static int printTreasure(Treasure treasure){
+        return treasure.getGold();
     }
 }
 
