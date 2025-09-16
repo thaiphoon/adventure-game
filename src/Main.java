@@ -13,9 +13,9 @@ public class Main {
      * - One main method
      * - A loop with a switch-case structure
      *
-     * TODO method createPlayer() - Could be local in the Main class or part of a Game Class
-     * TODO method createEnemy() - Enemies are now instead generated in the Square object
-     * TODO method createTreasure() - Treasures are now instead generated in the Square object
+     * DONE MOVED method createPlayer() - Could be local in the Main class or part of a Game Class
+     * DONE MOVED method createEnemy() - Enemies are now instead generated in the Square object
+     * DONE MOVED method createTreasure() - Treasures are now instead generated in the Square object
      *
      * OBJECTS
      * - Player
@@ -23,8 +23,7 @@ public class Main {
      *          gold int private
      *          stamina int private
      *      Methods
-     *          // TODO REMOVED exploreArea public - no arguments (randomise find enemy / treasure)
-     *          // Method exploreArea() instead To be added in Main Class and handled in the Game Loop or in a separate Game class
+     *          // DONE REMOVED exploreArea public - no arguments (randomise find enemy / treasure)
      *          rest public - no arguments
      *          getStamina public - no arguments
      *          updateStamina public - int stamina (could be negative)
@@ -53,15 +52,22 @@ public class Main {
      *      Methods
      *          fight public - (Player object, Enemy object) // Could be Array opf Enemies
      *
+     *  // TODO Class Game with methods createPlayer(), run(), and exploreArea()
+     *  - Game
+     *      Methods
+     *          public run() - no arguments // Main menu with actions
+     *          public createPlayer() - no arguments
+     *              Variables
+     *                  int stamina (some fixed value starting out)
+     *                  int gald (0)
+     *          exploreArea() // Details remains to be defined
+     *
      * Added Classes
      * - Explore (see Class)
      * - Map (see Class)
      * - Square (see Class)
      */
     public static void main(String[] args) {
-
-        // TODO Main menu with actions - Could be local in the Main class or part of a Game Class
-        // TODO Game Loop - Could be local in the Main class or part of a Game Class
 
         Explore explore = new Explore(9, 9, 1, 4, 0.8,
                 0, 101, 0.8);
