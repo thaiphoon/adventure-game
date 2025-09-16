@@ -1,6 +1,6 @@
 public class Enemy{
 
-  private int gold;
+  private final int gold;
   private int stamina;
 
   public Enemy(int gold, int stamina) {

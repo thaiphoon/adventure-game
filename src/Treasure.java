@@ -6,7 +6,11 @@ public class Treasure{
      *          getGold public - no arguments
      */
 
-    private int gold = 0;
+    private int gold;
+
+    public Treasure(int gold){
+        this.gold = gold;
+    }
 
     public int getGold(){
         return gold;
