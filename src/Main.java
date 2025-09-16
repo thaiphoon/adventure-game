@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Main {
     /**
      * One loop untill dead or quiting
@@ -48,8 +50,19 @@ public class Main {
      *      Methods
      *          fight public - (Player object, Enemy object) // Could be Array opf Enemies
      */
+    private Random rand = new Random();
     public static void main(String[] args){
         // todo Loop with switch-case structure
+    }
+
+
+    private Enemy createEnemy(){
+
+        //assign gold & stamina to Enemy randomly between numbers min-5, max-14 incl
+        int stamina = rand.nextInt(5, 15);
+        int gold = rand.nextInt(5, 15);
+
+        return new Enemy(gold, stamina);
     }
 }
 
