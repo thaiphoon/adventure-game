@@ -7,7 +7,7 @@ public class Fight{
     */
 
     private boolean result = false;  // if player win,result = true.
-    private int fightStamina = -1;
+    private int fightStamina = 1;
 
     public void fight (Player player, Enemy enemy){
         System.out.println("Fight!");
