@@ -56,11 +56,34 @@ public class Main {
      *  - Game
      *      Methods
      *          public run() - no arguments // Main menu with actions
+     *
+     *              PSEUDO CODE SUGGESTION - Game class and run() method
+     *
+     *              Game game = new Game;
+     *
+     *              game.run(){
+     *                  Player player = new Player(someVars...)
+     *                  Explore explore;
+     *                  while(true){
+     *                      explore = new Explore(xSize = 0, ySize = 0, ......)
+     *                      explore -> fetch square from map
+     *                      actions -> fight, flee....
+     *
+     *                      main switch(actions){
+     *                      case 1: explore
+     *                      case 0: end game
+     *                      }
+     *                  }
+     *              }
+     *
      *          public createPlayer() - no arguments
      *              Variables
      *                  int stamina (some fixed value starting out)
      *                  int gald (0)
-     *          exploreArea() // Details remains to be defined
+     *                  int positionX
+     *                  int positionY
+     *
+     *          exploreArea() - (int xNewPos, int yNewPos)
      *
      * Added Classes
      * - Explore (see Class)
