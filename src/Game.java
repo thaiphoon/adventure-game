@@ -53,10 +53,8 @@ public class Game {
                 temp[i] = enemies[i+1];
             }
             enemies = temp;
-            Fight fight = new Fight();
-            fight.fight(player, enemy);
             // förutsätt att spelaren vinner
-            boolean fightOutcome = true;
+            boolean fightOutcome = Fight.fight(player, enemy);
             if(fightOutcome){
 
             }
