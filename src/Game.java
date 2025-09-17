@@ -1,0 +1,107 @@
+import java.util.Scanner;
+
+public class Game {
+
+    Scanner scanner;
+    Map map;
+    Player player;
+    int xPos = 0;
+    int yPos = 0;
+
+    public Game(Scanner s){
+        scanner = s;
+        map = new Map(8,8 ,1,8,0.1,2,16,0.1);
+        player = new Player(0,100);
+    }
+
+    public void run(){
+        while(true){
+            String tmp = scanner.nextLine();
+            System.out.println(" 1. Go north");
+            System.out.println(" 2. Go east");
+            System.out.println(" 3. Go south");
+            System.out.println(" 4. Go west");
+            System.out.println(" 5. Explore area");
+            System.out.println(" 6. Rest");
+            System.out.println(" 7. Exit");
+
+            switch (tmp){
+                case "1": yPos+=1; break;
+                case "2": xPos+=1; break;
+                case "3": yPos-=1; break;
+                case "4": xPos-=1; break;
+                case "5": exploreArea(xPos, yPos); break;
+                case "6": player.rest();
+            }
+        }
+
+        }
+
+
+    public Player createPlayer(){
+        return new Player(0,100);
+    }
+
+    public void exploreArea(int xNewPos, int yNewPos){
+        Square[][] ss = map.getSquares();
+        Square s = ss[xNewPos][yNewPos];
+        Enemy[] enemies = s.getEnemies();
+        while(enemies.length != 0){
+            Enemy enemy = enemies[0];
+            Enemy[] temp = new Enemy[enemies.length - 1];
+            for(int i = 0; i < temp.length; i++){
+                temp[i] = enemies[i+1];
+            }
+            enemies = temp;
+            Fight fight = new Fight();
+            fight.fight(player, enemy);
+            // förutsätt att spelaren vinner
+            boolean fightOutcome = true;
+            if(fightOutcome){
+
+            }
+            else {
+                System.exit(0);
+            }
+
+        }
+        Treasure booty = s.getTreasure();
+        player.updateGold(booty.getGold());
+    }
+
+
+}
+
+/*
+- Game
+     *      Methods
+     *          public run() - no arguments // Main menu with actions
+     *
+     *              PSEUDO CODE SUGGESTION - Game class and run() method
+     *
+     *              Game game = new Game;
+     *
+     *              game.run(){
+     *                  Player player = new Player(someVars...)
+     *                  Explore explore;
+     *                  while(true){
+     *                      explore = new Explore(xSize = 0, ySize = 0, ......)
+     *                      explore -> fetch square from map
+     *                      actions -> fight, flee....
+     *
+     *                      main switch(actions){
+     *                      case 1: explore
+     *                      case 0: end game
+     *                      }
+     *                  }
+     *              }
+     *
+     *          public createPlayer() - no arguments
+     *              Variables
+     *                  int stamina (some fixed value starting out)
+     *                  int gold (0)
+     *                  int positionX
+     *                  int positionY
+     *
+     *          exploreArea() - (int xNewPos, int yNewPos)
+ */
