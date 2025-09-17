@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 public class Main {
     /**
      * One loop untill dead or quiting
@@ -90,7 +92,7 @@ public class Main {
      * - Map (see Class)
      * - Square (see Class)
      */
-    public static void main(String[] args) {
+    public static void main(String[] args){
 
         Explore explore = new Explore(9, 9, 1, 4, 0.8,
                 0, 101, 0.8);
@@ -104,6 +106,8 @@ public class Main {
                     sb  = new StringBuilder();
             }
         }
+        ShowMap showMap = new ShowMap();
+        showMap.showMap(explore.getMap().getSquares(), 8, 8);
     }
 
     private static int printNrEnemies(Square square){
