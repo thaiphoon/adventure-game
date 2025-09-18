@@ -24,6 +24,8 @@ public class Explore {
         return null;
     }
 
+    public Map getMap(){ return this.map; }
+
     private boolean checkIfSingleSquare(){ return (checkIfSingleSquareY() && checkIfSingleSquareX()); }
 
     private boolean checkIfSingleSquareX(){ return (this.map.getSquares()[0].length == 1); }

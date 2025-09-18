@@ -5,6 +5,7 @@ public class Square {
     private final Enemy[] enemies;
     private final Treasure treasure;
     private boolean enemiesKilled;
+    private boolean squareExplored;
 
     /**
      * Contstructor for building a square
@@ -67,4 +68,6 @@ public class Square {
     public Treasure getTreasure(){ return this.treasure; }
     public boolean checkIfEnemiesKilled(){ return this.enemiesKilled; }
     public void setAllEnemiesKilled(){ this.enemiesKilled = true; }
+    public boolean checkIfSquareExplored(){ return this.squareExplored; }
+    public void setSquareExplored(){ this.squareExplored = true; }
 }

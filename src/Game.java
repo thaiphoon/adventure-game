@@ -5,6 +5,17 @@ public class Game {
     Scanner scanner;
     Map map;
     Player player;
+
+    ShowMap showMap;
+    int xPos = 0;
+    int yPos = 0;
+
+    public Game(){
+        scanner = new Scanner(System.in);
+        map = new Map(9,9 ,1,8,0.1,2,16,0.1);
+        player = new Player(0,100, 4, 4);
+        showMap = new ShowMap();
+
     int xPos = 0;
     int yPos = 0;
 
@@ -12,11 +23,14 @@ public class Game {
         scanner = s;
         map = new Map(8,8 ,1,8,0.1,2,16,0.1);
         player = new Player(0,100);
+
     }
 
     public void run(){
         while(true){
+            showMap.showMap(map.getSquares(), player);
             String tmp = scanner.nextLine();
+
             System.out.println(" 1. Go north");
             System.out.println(" 2. Go east");
             System.out.println(" 3. Go south");
@@ -25,11 +39,20 @@ public class Game {
             System.out.println(" 6. Rest");
             System.out.println(" 7. Exit");
 
+            String tmp = scanner.nextLine();
+
+            switch (tmp){
+                case "1": yPos-=1; player.setyPos(player.getyPos()-1);break;
+                case "2": xPos+=1; player.setxPos(player.getxPos()+1);break;
+                case "3": yPos+=1; player.setyPos(player.getyPos()+1);break;
+                case "4": xPos-=1; player.setxPos(player.getxPos()-1);break;
+
             switch (tmp){
                 case "1": yPos+=1; break;
                 case "2": xPos+=1; break;
                 case "3": yPos-=1; break;
                 case "4": xPos-=1; break;
+
                 case "5": exploreArea(xPos, yPos); break;
                 case "6": player.rest();
             }
@@ -37,6 +60,11 @@ public class Game {
 
         }
 
+/*
+    public Player createPlayer(){
+        return new Player(0,100, 4, 4);
+    }
+*/
 
     public Player createPlayer(){
         return new Player(0,100);

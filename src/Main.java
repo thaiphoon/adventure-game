@@ -1,3 +1,6 @@
+import java.io.IOException;
+import java.util.Scanner;
+
 public class Main {
     /**
      * One loop untill dead or quiting
@@ -90,9 +93,14 @@ public class Main {
      * - Map (see Class)
      * - Square (see Class)
      */
-    public static void main(String[] args) {
 
-        Explore explore = new Explore(9, 9, 1, 4, 0.8,
+    public static void main(String[] args){
+        Game game = new Game();
+        game.run();
+
+/*
+>>>>>>> dd30ff522d23f6a1d5632f0eee8c24e569df64ac
+        Explore explore = new Explore(9, 9, 1, 4, 0.3,
                 0, 101, 0.8);
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < 9; i++) {
@@ -104,6 +112,8 @@ public class Main {
                     sb  = new StringBuilder();
             }
         }
+        ShowMap showMap = new ShowMap();
+        */
     }
 
     private static int printNrEnemies(Square square){
