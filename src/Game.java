@@ -48,6 +48,10 @@ public class Game {
                     player.setxPos(player.getxPos() - 1);
                     break;
                 case "5":
+                    exploreArea(xPos,yPos);
+                    break;
+                case "6":
+                    player.updateStamina(1);
                     break;
                 case "7":
                     scanner.close();
