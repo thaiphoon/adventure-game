@@ -113,10 +113,6 @@ public class Main {
             }
         }
         ShowMap showMap = new ShowMap();
-<<<<<<< HEAD
-        showMap.showMap(explore.getMap().getSquares(), new Player(10, 10, 4, 4));
-=======
-        showMap.showMap(explore.getMap().getSquares(), new Player(0, 10, 4, 4));
         */
     }
 
