@@ -92,9 +92,10 @@ public class Main {
      * - Map (see Class)
      * - Square (see Class)
      */
+
     public static void main(String[] args){
 
-        Explore explore = new Explore(9, 9, 1, 4, 0.8,
+        Explore explore = new Explore(9, 9, 1, 4, 0.3,
                 0, 101, 0.8);
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < 9; i++) {
@@ -107,7 +108,7 @@ public class Main {
             }
         }
         ShowMap showMap = new ShowMap();
-        showMap.showMap(explore.getMap().getSquares(), 8, 8);
+        showMap.showMap(explore.getMap().getSquares(), new Player(10, 10, 4, 4));
     }
 
     private static int printNrEnemies(Square square){

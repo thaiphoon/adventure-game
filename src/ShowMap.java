@@ -1,16 +1,39 @@
 public class ShowMap {
 
-    public void showMap(Square[][] squares, int playerXPos, int playerYPos){
-        printRowOfSquares(squares.length, squares, playerXPos, playerYPos);
+    public void showMap(Square[][] squares, Player player){
+        printRowOfSquares(squares.length, squares, player);
     }
 
-    private void printRowOfSquares(int columns, Square[][] squares, int playerXPos, int playerYPos){
+    private void printRowOfSquares(int columns, Square[][] squares, Player player){
+        printPlayerStatus(player);
         for(int i = 0; i <= columns; i++) {
             printSquares(columns);
             if(i < columns){
-                printStatus(columns, squares[i], i, playerXPos, playerYPos);
+                printStatus(columns, squares[i], i, player.getxPos() , player.getyPos());
             }
         }
+    }
+
+    private void printPlayerStatus(Player player){
+        StringBuilder sb = new StringBuilder();
+        sb.append("Stamina: ");
+        if(player.getStamina() >= 10) {
+            sb.append("\uD83D\uDCAA".repeat(10));
+            sb.append("+").append(player.getStamina() - 10);
+        }
+        else {
+            sb.append("\uD83D\uDCAA".repeat(Math.max(0, player.getStamina())));
+        }
+        System.out.println(sb.toString());
+        sb = new StringBuilder();
+        sb.append("Gold: ");
+        if(player.getGold() >= 10){
+            sb.append("\uD83E\uDD47".repeat(10));
+            sb.append("+").append(player.getGold() - 10);
+        } else {
+            sb.append("\uD83E\uDD47".repeat(Math.max(0, player.getGold())));
+        }
+        System.out.println(sb.toString());
     }
 
     private void printStatus(int columns, Square[] squares, int currentRow, int playerXPos, int playerYPos) {
@@ -19,10 +42,14 @@ public class ShowMap {
             if ((j % 5) == 1) {
                 //Suggestion use spaces instead of modulus
                 if((currentRow == playerYPos) && (k == playerXPos)){
-                    sb.append("☢\uFE0F");
+                    sb.append("\uD83E\uDDD1");
+                }
+                else if(squares[k].getEnemies().length > 0){
+                    sb.append("☠\uFE0F");
                 }
                 else if(!squares[k].checkIfSquareExplored()){
-                    sb.append(" ?");
+//                    sb.append(" ?");
+                    sb.append("\uD83C\uDF0E");
                 }
                 else{
                     sb.append(" E");
@@ -47,6 +74,5 @@ public class ShowMap {
             }
         }
         System.out.println(sb.toString());
-
     }
 }

@@ -2,10 +2,14 @@ public class Player{
 
     private int gold;
     private int stamina;
+    private int xPos;
+    private int yPos;
 
-    public Player(int gold, int stamina){
+    public Player(int gold, int stamina, int xPos, int yPos){
         this.gold = gold;
         this.stamina = stamina;
+        this.xPos = xPos;
+        this.yPos = yPos;
     }
 
     public int getGold(){ return this.gold; }
@@ -14,6 +18,21 @@ public class Player{
     public void updateGold(int value){ this.gold += value; }
     public void rest(){ this.stamina++; }
 
+    public int getxPos() {
+        return xPos;
+    }
+
+    public void setxPos(int xPos) {
+        this.xPos = xPos;
+    }
+
+    public int getyPos() {
+        return yPos;
+    }
+
+    public void setyPos(int yPos) {
+        this.yPos = yPos;
+    }
     /*
      *      Variables
      *          gold int private
