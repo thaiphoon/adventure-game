@@ -5,31 +5,20 @@ public class Game {
     Scanner scanner;
     Map map;
     Player player;
-
     ShowMap showMap;
     int xPos = 0;
     int yPos = 0;
 
-    public Game(){
+    public Game() {
         scanner = new Scanner(System.in);
-        map = new Map(9,9 ,1,8,0.1,2,16,0.1);
-        player = new Player(0,100, 4, 4);
+        map = new Map(9, 9, 1, 8, 0.1, 2, 16, 0.1);
+        player = new Player(0, 100, 4, 4);
         showMap = new ShowMap();
-
-    int xPos = 0;
-    int yPos = 0;
-
-    public Game(Scanner s){
-        scanner = s;
-        map = new Map(8,8 ,1,8,0.1,2,16,0.1);
-        player = new Player(0,100);
-
     }
 
-    public void run(){
-        while(true){
+    public void run() {
+        while (true) {
             showMap.showMap(map.getSquares(), player);
-            String tmp = scanner.nextLine();
 
             System.out.println(" 1. Go north");
             System.out.println(" 2. Go east");
@@ -41,62 +30,60 @@ public class Game {
 
             String tmp = scanner.nextLine();
 
-            switch (tmp){
-                case "1": yPos-=1; player.setyPos(player.getyPos()-1);break;
-                case "2": xPos+=1; player.setxPos(player.getxPos()+1);break;
-                case "3": yPos+=1; player.setyPos(player.getyPos()+1);break;
-                case "4": xPos-=1; player.setxPos(player.getxPos()-1);break;
+            switch (tmp) {
+                case "1":
+                    yPos -= 1;
+                    player.setyPos(player.getyPos() - 1);
+                    break;
+                case "2":
+                    xPos += 1;
+                    player.setxPos(player.getxPos() + 1);
+                    break;
+                case "3":
+                    yPos += 1;
+                    player.setyPos(player.getyPos() + 1);
+                    break;
+                case "4":
+                    xPos -= 1;
+                    player.setxPos(player.getxPos() - 1);
+                    break;
+                case "5":
+                    break;
+                case "7":
+                    scanner.close();
+                    System.exit(0);
+                 }
 
-            switch (tmp){
-                case "1": yPos+=1; break;
-                case "2": xPos+=1; break;
-                case "3": yPos-=1; break;
-                case "4": xPos-=1; break;
-
-                case "5": exploreArea(xPos, yPos); break;
-                case "6": player.rest();
-            }
-        }
-
-        }
-
-/*
-    public Player createPlayer(){
-        return new Player(0,100, 4, 4);
-    }
-*/
-
-    public Player createPlayer(){
-        return new Player(0,100);
-    }
-
-    public void exploreArea(int xNewPos, int yNewPos){
-        Square[][] ss = map.getSquares();
-        Square s = ss[xNewPos][yNewPos];
-        Enemy[] enemies = s.getEnemies();
-        while(enemies.length != 0){
-            Enemy enemy = enemies[0];
-            Enemy[] temp = new Enemy[enemies.length - 1];
-            for(int i = 0; i < temp.length; i++){
-                temp[i] = enemies[i+1];
-            }
-            enemies = temp;
-            // förutsätt att spelaren vinner
-            boolean fightOutcome = Fight.fight(player, enemy);
-            if(fightOutcome){
-
-            }
-            else {
-                System.exit(0);
             }
 
         }
-        Treasure booty = s.getTreasure();
-        player.updateGold(booty.getGold());
+
+        public void exploreArea(int xNewPos, int yNewPos){
+            Square[][] ss = map.getSquares();
+            Square s = ss[xNewPos][yNewPos];
+            Enemy[] enemies = s.getEnemies();
+            while (enemies.length != 0) {
+                Enemy enemy = enemies[0];
+                Enemy[] temp = new Enemy[enemies.length - 1];
+                for (int i = 0; i < temp.length; i++) {
+                    temp[i] = enemies[i + 1];
+                }
+                enemies = temp;
+                // förutsätt att spelaren vinner
+                boolean fightOutcome = Fight.fight(player, enemy);
+                if (fightOutcome) {
+
+                } else {
+                    System.exit(0);
+                }
+
+            }
+            Treasure booty = s.getTreasure();
+            player.updateGold(booty.getGold());
+        }
+
+
     }
-
-
-}
 
 /*
 - Game
