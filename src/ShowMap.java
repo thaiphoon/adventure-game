@@ -9,7 +9,7 @@ public class ShowMap {
         for(int i = 0; i <= columns; i++) {
             printSquares(columns);
             if(i < columns){
-                printStatus(columns, squares[i], i, player.getxPos() , player.getyPos());
+                printStatus(columns, squares[i], i, playerXPos, playerYPos);
             }
         }
     }
@@ -74,5 +74,6 @@ public class ShowMap {
             }
         }
         System.out.println(sb.toString());
+
     }
 }

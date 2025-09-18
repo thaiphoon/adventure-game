@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Main {
     /**
@@ -92,9 +93,18 @@ public class Main {
      * - Map (see Class)
      * - Square (see Class)
      */
+<<<<<<< HEAD
 
     public static void main(String[] args){
 
+=======
+
+    public static void main(String[] args){
+        Game game = new Game();
+        game.run();
+
+/*
+>>>>>>> dd30ff522d23f6a1d5632f0eee8c24e569df64ac
         Explore explore = new Explore(9, 9, 1, 4, 0.3,
                 0, 101, 0.8);
         StringBuilder sb = new StringBuilder();
@@ -108,7 +118,12 @@ public class Main {
             }
         }
         ShowMap showMap = new ShowMap();
+<<<<<<< HEAD
         showMap.showMap(explore.getMap().getSquares(), new Player(10, 10, 4, 4));
+=======
+        showMap.showMap(explore.getMap().getSquares(), new Player(0, 10, 4, 4));
+        */
+>>>>>>> dd30ff522d23f6a1d5632f0eee8c24e569df64ac
     }
 
     private static int printNrEnemies(Square square){
