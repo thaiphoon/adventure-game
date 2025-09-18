@@ -12,9 +12,11 @@ public class ShowMap {
                 printStatus(columns, squares[i], i, player.getxPos(), player.getyPos());
             }
         }
+        System.out.println();
     }
 
     private void printPlayerStatus(Player player){
+        System.out.println();
         StringBuilder sb = new StringBuilder();
         sb.append("Stamina: ");
         if(player.getStamina() >= 10) {
@@ -34,6 +36,7 @@ public class ShowMap {
             sb.append("\uD83E\uDD47".repeat(Math.max(0, player.getGold())));
         }
         System.out.println(sb.toString());
+        System.out.println();
     }
 
     private void printStatus(int columns, Square[] squares, int currentRow, int playerXPos, int playerYPos) {
@@ -42,20 +45,20 @@ public class ShowMap {
             if ((j % 5) == 1) {
                 //Suggestion use spaces instead of modulus
                 if((currentRow == playerYPos) && (k == playerXPos)){
-                    sb.append(" P");
+                    sb.append("\uD83E\uDDD1");
                 }
                 else if(squares[k].getEnemies().length > 0){
-                    sb.append(" E");
+                    sb.append("☠\uFE0F");
                 }
                 else if(squares[k].getTreasure().getGold() > 0){
-                    sb.append(" G");
+                    sb.append("\uD83D\uDCB0");
+
                 }
                 else if(!squares[k].checkIfSquareExplored()){
-//                    sb.append(" ?");
-                    sb.append(" U");
+                    sb.append("\uD83C\uDF0E");
                 }
                 else{
-                    sb.append(" C");
+                    sb.append("\uD83C\uDF0D");
                 }
                 k++;
             }

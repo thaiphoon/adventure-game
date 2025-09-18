@@ -11,8 +11,8 @@ public class Game {
 
     public Game() {
         scanner = new Scanner(System.in);
-        map = new Map(3, 3, 1, 1, 0.9, 2, 16, 0.9);
-        player = new Player(0, 100, 1, 1);
+        map = new Map(9, 9, 1, 1, 0.2, 2, 16, 0.2);
+        player = new Player(0, 100, 4, 4);
         showMap = new ShowMap();
     }
 
@@ -66,7 +66,6 @@ public class Game {
 
     public void run() {
         while (true) {
-            printDebug();
             showMap.showMap(map.getSquares(), player);
 
             System.out.println(" 1. Go north");
@@ -81,20 +80,40 @@ public class Game {
 
             switch (tmp) {
                 case "1":
-                    yPos -= 1;
-                    player.setyPos(player.getyPos() - 1);
+                    if(!checkIfInsideWorld(player.getxPos(), player.getyPos() - 1)){
+                        System.out.println("Yaw mate stay on the island!!!");
+                    }
+                    else{
+                        yPos -= 1;
+                        player.setyPos(player.getyPos() - 1);
+                    }
                     break;
                 case "2":
-                    xPos += 1;
-                    player.setxPos(player.getxPos() + 1);
+                    if(!checkIfInsideWorld(player.getxPos() + 1, player.getyPos())){
+                        System.out.println("Yaw mate stay on the island!!!");
+                    }
+                    else{
+                        xPos += 1;
+                        player.setxPos(player.getxPos() + 1);
+                    }
                     break;
                 case "3":
-                    yPos += 1;
-                    player.setyPos(player.getyPos() + 1);
+                    if(!checkIfInsideWorld(player.getxPos(), player.getyPos() + 1)){
+                        System.out.println("Yaw mate stay on the island!!!");
+                    }
+                    else{
+                        yPos += 1;
+                        player.setyPos(player.getyPos() + 1);
+                    }
                     break;
                 case "4":
-                    xPos -= 1;
-                    player.setxPos(player.getxPos() - 1);
+                    if(!checkIfInsideWorld(player.getxPos() - 1, player.getyPos())){
+                        System.out.println("Yaw mate stay on the island!!!");
+                    }
+                    else{
+                        xPos -= 1;
+                        player.setxPos(player.getxPos() - 1);
+                    }
                     break;
                 case "5":
                     exploreArea(player.getxPos(),player.getyPos());
@@ -139,6 +158,18 @@ public class Game {
             }
             map.getSquares()[player.getyPos()][player.getxPos()].setSquareExplored();
         }
+
+    private boolean checkIfInsideWorld(int x, int y){
+        return checkIfInsideWorldX(x) && checkIfInsideWorldY(y);
+    }
+
+    private boolean checkIfInsideWorldX(int x){
+        return (x < this.map.getSquares()[0].length) && (x >= 0);
+    }
+
+    private boolean checkIfInsideWorldY(int y){
+        return (y < this.map.getSquares().length) && (y >= 0);
+    }
 
     private void printDebug(){
         StringBuilder sb = new StringBuilder();

@@ -12,7 +12,7 @@ public class Fight{
         System.out.println("Fight!");
         Random random = new Random();
         // if player win,result = true.
-        boolean result = true;
+        boolean result = random.nextBoolean();
         if (result){
             System.out.println("Player won the fight.");
             enemy.updateStamina(-fightStamina);
