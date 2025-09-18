@@ -72,9 +72,9 @@ public class Game {
             System.out.println(" 2. Go east");
             System.out.println(" 3. Go south");
             System.out.println(" 4. Go west");
-            System.out.println(" 5. Explore area");
-            System.out.println(" 6. Rest");
-            System.out.println(" 7. Exit");
+            //System.out.println(" 5. Explore area");
+            System.out.println(" 5. Rest");
+            System.out.println(" 0. Exit");
 
             String tmp = scanner.nextLine();
 
@@ -86,6 +86,7 @@ public class Game {
                     else{
                         yPos -= 1;
                         player.setyPos(player.getyPos() - 1);
+                        exploreArea(player.getxPos(),player.getyPos());
                     }
                     break;
                 case "2":
@@ -95,6 +96,7 @@ public class Game {
                     else{
                         xPos += 1;
                         player.setxPos(player.getxPos() + 1);
+                        exploreArea(player.getxPos(),player.getyPos());
                     }
                     break;
                 case "3":
@@ -104,6 +106,7 @@ public class Game {
                     else{
                         yPos += 1;
                         player.setyPos(player.getyPos() + 1);
+                        exploreArea(player.getxPos(),player.getyPos());
                     }
                     break;
                 case "4":
@@ -113,15 +116,16 @@ public class Game {
                     else{
                         xPos -= 1;
                         player.setxPos(player.getxPos() - 1);
+                        exploreArea(player.getxPos(),player.getyPos());
                     }
                     break;
+                //case "5":
+                //    exploreArea(player.getxPos(),player.getyPos());
+                //    break;
                 case "5":
-                    exploreArea(player.getxPos(),player.getyPos());
-                    break;
-                case "6":
                     player.updateStamina(1);
                     break;
-                case "7":
+                case "0":
                     scanner.close();
                     System.exit(0);
                  }
