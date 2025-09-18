@@ -16,6 +16,54 @@ public class Game {
         showMap = new ShowMap();
     }
 
+/*    public boolean testGame(){
+        player.setyPos(player.getyPos() - 1);
+        exploreArea(player.getxPos(), player.getyPos());
+
+        player.setxPos(player.getxPos() - 1);
+        exploreArea(player.getxPos(), player.getyPos());
+
+        player.setyPos(player.getyPos() + 1);
+        exploreArea(player.getxPos(), player.getyPos());
+
+        player.setyPos(player.getyPos() + 1);
+        exploreArea(player.getxPos(), player.getyPos());
+
+        player.setxPos(player.getxPos() + 1);
+        exploreArea(player.getxPos(), player.getyPos());
+
+        player.setxPos(player.getxPos() + 1);
+        exploreArea(player.getxPos(), player.getyPos());
+
+        player.setyPos(player.getyPos() - 1);
+        exploreArea(player.getxPos(), player.getyPos());
+
+        player.setyPos(player.getyPos() - 1);
+        exploreArea(player.getxPos(), player.getyPos());
+
+        int goldTmp = 0;
+        int enemyTmp = 0;
+        boolean[] checkStatus = new boolean[9];
+
+        for(int i = 0; i < map.getSquares().length; i++){
+            for(int j = 0; j < map.getSquares()[i].length; j++){
+                goldTmp += map.getSquares()[i][j].getTreasure().getGold();
+                enemyTmp += map.getSquares()[i][j].getEnemies().length;
+                checkStatus[j] = map.getSquares()[i][j].checkIfEnemiesKilled() && map.getSquares()[i][j].checkIfSquareExplored();
+            }
+        }
+
+        int flagtest = 0;
+
+        for(int k = 0; k < checkStatus.length; k++){
+            if(checkStatus[k]){
+                flagtest++;
+            }
+        }
+
+        return ((goldTmp + enemyTmp) > 0) && (flagtest == 9);
+    }*/
+
     public void run() {
         while (true) {
             printDebug();
@@ -61,12 +109,13 @@ public class Game {
 
             }
 
+
         }
 
         public void exploreArea(int xNewPos, int yNewPos){
             Square[][] ss = map.getSquares();
-            Square s = ss[xNewPos][yNewPos];
-            Enemy[] enemies = s.getEnemies();
+            Square s = map.getSquares()[yNewPos][xNewPos];
+            Enemy[] enemies = map.getSquares()[yNewPos][xNewPos].getEnemies();
             while (enemies.length != 0) {
                 Enemy enemy = enemies[0];
                 Enemy[] temp = new Enemy[enemies.length - 1];
@@ -74,7 +123,6 @@ public class Game {
                     temp[i] = enemies[i + 1];
                 }
                 enemies = temp;
-                // förutsätt att spelaren vinner
                 boolean fightOutcome = Fight.fight(player, enemy);
                 if (fightOutcome) {
                     map.getSquares()[yNewPos][xNewPos].setEnemies(new Enemy[0]);
@@ -83,14 +131,13 @@ public class Game {
                     System.out.println("Game Over!!!!");
                     System.exit(0);
                 }
-
             }
             if(s.getTreasure().getGold() > 0){
                 player.updateGold(s.getTreasure().getGold());
                 System.out.println("You found: " + s.getTreasure().getGold() + " Gold");
                 map.getSquares()[yNewPos][xNewPos].getTreasure().setGold(0);
             }
-            map.getSquares()[yNewPos][xNewPos].setSquareExplored();
+            map.getSquares()[player.getyPos()][player.getxPos()].setSquareExplored();
         }
 
     private void printDebug(){

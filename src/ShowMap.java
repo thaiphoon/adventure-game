@@ -42,20 +42,20 @@ public class ShowMap {
             if ((j % 5) == 1) {
                 //Suggestion use spaces instead of modulus
                 if((currentRow == playerYPos) && (k == playerXPos)){
-                    sb.append("\uD83E\uDDD1");
+                    sb.append(" P");
                 }
                 else if(squares[k].getEnemies().length > 0){
-                    sb.append("☠\uFE0F");
+                    sb.append(" E");
                 }
                 else if(squares[k].getTreasure().getGold() > 0){
                     sb.append(" G");
                 }
                 else if(!squares[k].checkIfSquareExplored()){
 //                    sb.append(" ?");
-                    sb.append("\uD83C\uDF0E");
+                    sb.append(" U");
                 }
                 else{
-                    sb.append(" E");
+                    sb.append(" C");
                 }
                 k++;
             }
