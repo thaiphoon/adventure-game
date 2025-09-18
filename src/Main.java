@@ -93,11 +93,6 @@ public class Main {
      * - Map (see Class)
      * - Square (see Class)
      */
-<<<<<<< HEAD
-
-    public static void main(String[] args){
-
-=======
 
     public static void main(String[] args){
         Game game = new Game();
@@ -123,7 +118,6 @@ public class Main {
 =======
         showMap.showMap(explore.getMap().getSquares(), new Player(0, 10, 4, 4));
         */
->>>>>>> dd30ff522d23f6a1d5632f0eee8c24e569df64ac
     }
 
     private static int printNrEnemies(Square square){

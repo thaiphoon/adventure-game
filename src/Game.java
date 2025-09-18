@@ -10,7 +10,7 @@ public class Game {
     int yPos = 0;
 
     public Game(){
-        Scanner s = new Scanner(System.in);
+        scanner = new Scanner(System.in);
         map = new Map(9,9 ,1,8,0.1,2,16,0.1);
         player = new Player(0,100, 4, 4);
         showMap = new ShowMap();
