@@ -2,7 +2,7 @@ import java.util.Random;
 
 public class Square {
 
-    private final Enemy[] enemies;
+    private Enemy[] enemies;
     private final Treasure treasure;
     private boolean enemiesKilled;
     private boolean squareExplored;
@@ -65,6 +65,7 @@ public class Square {
     }
 
     public Enemy[] getEnemies(){ return this.enemies; }
+    public void setEnemies(Enemy[] value){ this.enemies = value; }
     public Treasure getTreasure(){ return this.treasure; }
     public boolean checkIfEnemiesKilled(){ return this.enemiesKilled; }
     public void setAllEnemiesKilled(){ this.enemiesKilled = true; }

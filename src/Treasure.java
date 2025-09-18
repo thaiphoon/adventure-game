@@ -15,6 +15,7 @@ public class Treasure{
     public int getGold(){
         return gold;
     }
+    public void setGold(int value){ this.gold = value; }
 
 
 }

@@ -47,6 +47,9 @@ public class ShowMap {
                 else if(squares[k].getEnemies().length > 0){
                     sb.append("☠\uFE0F");
                 }
+                else if(squares[k].getTreasure().getGold() > 0){
+                    sb.append(" G");
+                }
                 else if(!squares[k].checkIfSquareExplored()){
 //                    sb.append(" ?");
                     sb.append("\uD83C\uDF0E");
